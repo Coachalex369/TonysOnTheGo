@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tony's On the Go monogram">
+  <circle cx="32" cy="32" r="31" fill="#1a1611"/>
+  <circle cx="32" cy="32" r="27" fill="#a9231f"/>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#c9a24d" stroke-width="1.5"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="34" font-weight="700" fill="#f8f2e4">T</text>
+</svg>

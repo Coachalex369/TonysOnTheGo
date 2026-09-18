@@ -325,20 +325,13 @@ section.tinted {
   letter-spacing: 0.01em;
 }
 
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--red);
-  border: 1.5px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--cream);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.15rem;
+/* Official Tony's Mountain Pizza logo (transparent PNG, 200x179). Height is
+   set and width follows the aspect ratio, so it is never stretched or clipped. */
+.brand-logo {
+  height: 54px;
+  width: auto;
   flex-shrink: 0;
+  display: block;
 }
 
 .brand-text {
@@ -354,6 +347,22 @@ section.tinted {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold-soft);
+}
+
+@media (max-width: 420px) {
+  .brand {
+    gap: 9px;
+    font-size: 1.02rem;
+  }
+
+  .brand-logo {
+    height: 46px;
+  }
+
+  .brand-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
 }
 
 .nav-links {
@@ -681,116 +690,136 @@ section.tinted {
 }
 
 /* -------------------- Menu -------------------- */
-.menu-panel {
+.text-link {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.menu-jump {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 44px;
+  max-width: 900px;
+}
+
+.menu-jump a {
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: clamp(28px, 4vw, 52px);
-  box-shadow: var(--shadow-soft);
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-panel::before {
-  content: "";
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(182, 144, 63, 0.16),
-    rgba(182, 144, 63, 0) 70%
-  );
-}
-
-.menu-panel .eyebrow {
-  position: relative;
-}
-
-.menu-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--cream-soft);
-  border: 1px solid var(--gold-soft);
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 8px 16px;
   border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.menu-jump a:hover {
+  background: var(--cream-soft);
+  border-color: var(--gold-soft);
+}
+
+.menu-group-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.menu-group-head h3 {
+  margin: 0;
+}
+
+.menu-tag {
+  background: var(--red);
+  color: var(--cream);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.menu-block {
+  margin-top: 40px;
+}
+
+.menu-block:first-of-type {
+  margin-top: 0;
+}
+
+.menu-block > h4 {
+  font-size: 1.25rem;
+  padding-bottom: 10px;
   margin-bottom: 18px;
+  border-bottom: 2px solid var(--gold-soft);
 }
 
-.menu-status-badge .pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold);
-}
-
-#menu-message {
-  font-size: 1.08rem;
-  max-width: 62ch;
-  color: var(--ink-soft);
-}
-
-.menu-categories {
-  margin-top: 28px;
+.dish-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
-.menu-category {
+.dish-card {
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 20px;
-}
-
-.menu-category h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.menu-item {
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-}
-
-.menu-item:first-of-type {
-  border-top: none;
-}
-
-.menu-item-head {
+  padding: 22px;
+  box-shadow: var(--shadow-card);
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-weight: 700;
+  flex-direction: column;
 }
 
-.menu-item p {
-  margin: 4px 0 0;
-  font-size: 0.92rem;
+.dish-card h5 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+
+.dish-card p {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 
+.dish-card .dish-price,
+.addon-card .dish-price {
+  margin: auto 0 0;
+  padding-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.dish-card .dish-note {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+
 .menu-actions {
-  margin-top: 30px;
+  margin-top: 48px;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .menu-actions .hint {
   color: var(--ink-soft);
   font-size: 0.92rem;
   margin: 0;
+  max-width: 52ch;
 }
-
 /* -------------------- Event room -------------------- */
 .event-room {
   background: var(--black);
@@ -857,6 +886,160 @@ section.tinted {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Menu blocks that sit inside the dark event-room section */
+.event-room .on-dark-block {
+  margin-top: 64px;
+}
+
+.event-room h2,
+.event-room h3,
+.event-room h4 {
+  color: var(--cream);
+}
+
+.event-room .menu-group-head h3 {
+  font-size: 1.5rem;
+}
+
+.package-intro {
+  max-width: 62ch;
+  color: var(--cream-soft);
+  margin-bottom: 24px;
+}
+
+.package-intro strong {
+  color: var(--cream);
+}
+
+.package-grid,
+.addon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.package-card,
+.addon-card {
+  background: var(--charcoal-soft);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card h4,
+.addon-card h4 {
+  color: var(--cream);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.addon-card p {
+  color: var(--cream-soft);
+  font-size: 0.92rem;
+  margin: 0 0 12px;
+}
+
+.package-price {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--gold-soft);
+  margin: auto 0 0;
+  line-height: 1.1;
+}
+
+.package-price span {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cream-soft);
+}
+
+.event-room .addon-card .dish-price {
+  color: var(--gold-soft);
+}
+
+.policy-list {
+  display: grid;
+  gap: 12px;
+  max-width: 820px;
+}
+
+.policy {
+  background: var(--charcoal-soft);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius);
+  padding: 0 20px;
+}
+
+.policy summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 28px 16px 0;
+  font-weight: 700;
+  color: var(--cream);
+  position: relative;
+}
+
+.policy summary::-webkit-details-marker {
+  display: none;
+}
+
+.policy summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--gold-soft);
+}
+
+.policy[open] summary::after {
+  content: "\2212";
+}
+
+.policy > p,
+.policy li {
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+
+.policy > p {
+  margin: 0 0 8px;
+}
+
+.policy ul {
+  padding-bottom: 6px;
+}
+
+.policy li {
+  position: relative;
+  padding: 0 0 8px 18px;
+}
+
+.policy li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.policy .btn {
+  margin: 4px 0 20px;
+}
+
+.event-room .text-link {
+  color: var(--gold-soft);
 }
 
 .placeholder-slot {

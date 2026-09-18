@@ -9,16 +9,25 @@ Plain HTML/CSS/JS — no framework, no bundler, no build step.
 
 ```
 index.html    Single scrolling homepage (nav, hero, catering info, menu,
-              event room, about, gallery, quote form, contact, footer)
+              event room + packages/policies, about, gallery, quote form,
+              contact, footer). The menu is plain HTML — edit it directly.
 styles.css    All site styling
-script.js     Nav toggle, gallery lightbox, menu.json rendering,
-              quote-form validation + mailto hand-off
-menu.json     Menu data. Currently a "coming soon" placeholder —
-              script.js is written to render real categories/items
-              here once the menu is finalized, with no other changes needed
-favicon.svg   Site favicon
-images/       Catering photos used across the hero, about, and gallery sections
+script.js     Nav toggle, gallery lightbox, quote-form validation +
+              mailto hand-off
+favicon.svg   Original placeholder monogram (no longer referenced; the site
+              favicon is now images/tonys-mountain-pizza-icon.png)
+images/       Catering photos (hero, about, gallery) plus the official
+              Tony's Mountain Pizza logo (tonys-mountain-pizza-logo.png) and
+              a square, transparent-padded copy of it for the favicon
 ```
+
+## Menu structure
+
+- **Menu** (`#menu`) — Tony's On the Go catering choices from Dawn: Featured
+  Italian Dishes, Plated Options, Buffet-Style Options. No prices have been
+  confirmed for these, so each shows "Contact us for pricing".
+- **Event Room** (`#event-room`) — Tony's Mountain Pizza's separate, priced
+  event-room packages, Desserts & Add-Ons, and Event Policies & Booking.
 
 ## Previewing locally
 

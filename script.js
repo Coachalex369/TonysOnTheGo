@@ -15,7 +15,6 @@
     initNavToggle();
     initSmoothScrollCleanup();
     initGallery();
-    loadMenu();
     initQuoteForm();
   });
 
@@ -95,92 +94,6 @@
         }, prefersReducedMotion ? 0 : 350);
       });
     });
-  }
-
-  /* -------------------- Menu (coming soon / future live menu) -------------------- */
-  function loadMenu() {
-    var messageEl = document.getElementById("menu-message");
-    var categoriesEl = document.getElementById("menu-categories");
-    if (!categoriesEl) return;
-
-    fetch("menu.json")
-      .then(function (res) {
-        if (!res.ok) throw new Error("menu.json request failed");
-        return res.json();
-      })
-      .then(function (data) {
-        renderMenu(data, messageEl, categoriesEl);
-      })
-      .catch(function () {
-        // menu.json missing or malformed — the static "coming soon" copy
-        // already in the HTML stands as-is, so fail quietly.
-        categoriesEl.hidden = true;
-      });
-  }
-
-  function renderMenu(data, messageEl, categoriesEl) {
-    if (!data || typeof data !== "object") return;
-
-    if (messageEl && typeof data.message === "string" && data.message.trim()) {
-      messageEl.textContent = data.message;
-    }
-
-    var categories = Array.isArray(data.categories) ? data.categories : [];
-    if (categories.length === 0) {
-      categoriesEl.hidden = true;
-      categoriesEl.innerHTML = "";
-      return;
-    }
-
-    var frag = document.createDocumentFragment();
-
-    categories.forEach(function (category) {
-      if (!category || typeof category !== "object") return;
-      var items = Array.isArray(category.items) ? category.items : [];
-
-      var card = document.createElement("div");
-      card.className = "menu-category";
-
-      var heading = document.createElement("h3");
-      heading.textContent = category.name || "Menu Category";
-      card.appendChild(heading);
-
-      items.forEach(function (item) {
-        if (!item || typeof item !== "object") return;
-
-        var row = document.createElement("div");
-        row.className = "menu-item";
-
-        var head = document.createElement("div");
-        head.className = "menu-item-head";
-
-        var name = document.createElement("span");
-        name.textContent = item.name || "";
-        head.appendChild(name);
-
-        if (item.price !== null && item.price !== undefined && item.price !== "") {
-          var price = document.createElement("span");
-          price.textContent = String(item.price);
-          head.appendChild(price);
-        }
-
-        row.appendChild(head);
-
-        if (item.description) {
-          var desc = document.createElement("p");
-          desc.textContent = item.description;
-          row.appendChild(desc);
-        }
-
-        card.appendChild(row);
-      });
-
-      frag.appendChild(card);
-    });
-
-    categoriesEl.innerHTML = "";
-    categoriesEl.appendChild(frag);
-    categoriesEl.hidden = false;
   }
 
   /* -------------------- Gallery lightbox -------------------- */

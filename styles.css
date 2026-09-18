@@ -788,13 +788,12 @@ section.tinted {
   color: var(--ink-soft);
 }
 
-.dish-card .dish-price,
-.addon-card .dish-price {
+.dish-card .dish-price {
   margin: auto 0 0;
   padding-top: 4px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--red);
 }
 
 .dish-card .dish-note {
@@ -893,6 +892,10 @@ section.tinted {
   margin-top: 64px;
 }
 
+.event-room .eyebrow {
+  color: var(--gold-soft);
+}
+
 .event-room h2,
 .event-room h3,
 .event-room h4 {
@@ -959,10 +962,6 @@ section.tinted {
   color: var(--cream-soft);
 }
 
-.event-room .addon-card .dish-price {
-  color: var(--gold-soft);
-}
-
 .policy-list {
   display: grid;
   gap: 12px;
@@ -1004,26 +1003,39 @@ section.tinted {
   content: "\2212";
 }
 
-.policy > p,
-.policy li {
+.policy > p {
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+  margin: 0 0 8px;
+}
+
+.policy-sub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 6px 0 8px;
+}
+
+.policy .bullet-list + .policy-sub {
+  margin-top: 14px;
+}
+
+.policy .bullet-list {
+  padding-bottom: 8px;
+}
+
+/* Gold-dot bullets shared by event-room cards and policy accordions */
+.bullet-list li {
+  position: relative;
+  padding: 0 0 8px 18px;
   color: var(--cream-soft);
   font-size: 0.95rem;
 }
 
-.policy > p {
-  margin: 0 0 8px;
-}
-
-.policy ul {
-  padding-bottom: 6px;
-}
-
-.policy li {
-  position: relative;
-  padding: 0 0 8px 18px;
-}
-
-.policy li::before {
+.bullet-list li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1034,8 +1046,68 @@ section.tinted {
   background: var(--gold);
 }
 
-.policy .btn {
-  margin: 4px 0 20px;
+.package-card .package-includes {
+  color: var(--cream-soft);
+  font-size: 0.92rem;
+  margin: 0 0 16px;
+}
+
+/* .addon-card p would otherwise shrink and recolor the price line */
+.addon-card .package-price {
+  font-size: 1.9rem;
+  color: var(--gold-soft);
+  margin: auto 0 0;
+}
+
+.inclusions-card {
+  max-width: 520px;
+}
+
+.event-contact-card {
+  background: var(--charcoal-soft);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 720px;
+}
+
+.event-contact-lead,
+.event-contact-note {
+  color: var(--cream-soft);
+  font-size: 0.95rem;
+}
+
+.event-contact-list {
+  margin: 0 0 18px;
+}
+
+.event-contact-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--line-on-dark);
+  color: var(--cream-soft);
+  overflow-wrap: anywhere;
+}
+
+.event-contact-list li:last-child {
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+.event-contact-list li > span {
+  min-width: 56px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.event-contact-note {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .event-room .text-link {

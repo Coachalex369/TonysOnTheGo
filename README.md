@@ -27,7 +27,11 @@ images/       Catering photos (hero, about, gallery) plus the official
   Italian Dishes, Plated Options, Buffet-Style Options. No prices have been
   confirmed for these, so each shows "Contact us for pricing".
 - **Event Room** (`#event-room`) — Tony's Mountain Pizza's separate, priced
-  event-room packages, Desserts & Add-Ons, and Event Policies & Booking.
+  event-room menu: Buffet Packages, Pasta Options & Upgrades, Desserts, Event
+  Inclusions, Event Policies & Booking (accordions: custom events, guest count
+  and pricing rules, reservations, food/alcohol/decorations, equipment and
+  parking), and a separate Event-Room Contact card. Event-room contact
+  (TonysMountainPizzaEvents@gmail.com) is kept apart from the catering contact.
 
 ## Previewing locally
 

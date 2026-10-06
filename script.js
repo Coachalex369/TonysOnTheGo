@@ -200,6 +200,47 @@
       { id: "qEventType", label: "an event type" }
     ];
 
+    var HOLIDAY_EVENT = "Holiday Feast Package";
+    var eventTypeEl = document.getElementById("qEventType");
+    var holidayFields = document.getElementById("holidayFields");
+    var sideBoxes = form.querySelectorAll('input[name="holidaySides"]');
+    var sidesCountEl = document.getElementById("hfSidesCount");
+
+    function isHolidayOrder() {
+      return eventTypeEl && eventTypeEl.value === HOLIDAY_EVENT;
+    }
+
+    function syncHolidayFields() {
+      if (holidayFields) holidayFields.hidden = !isHolidayOrder();
+    }
+
+    // Allow at most three sides; disable the rest once three are checked.
+    function syncSides() {
+      var checked = form.querySelectorAll('input[name="holidaySides"]:checked').length;
+      sideBoxes.forEach(function (box) {
+        box.disabled = !box.checked && checked >= 3;
+      });
+      if (sidesCountEl) sidesCountEl.textContent = checked + " of 3 selected";
+    }
+
+    if (eventTypeEl) eventTypeEl.addEventListener("change", syncHolidayFields);
+    sideBoxes.forEach(function (box) {
+      box.addEventListener("change", syncSides);
+    });
+
+    // Buttons elsewhere on the page (e.g. the Holiday Feast section) can
+    // preselect an event type before jumping to the form.
+    document.querySelectorAll("[data-preselect-event]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (!eventTypeEl) return;
+        eventTypeEl.value = link.getAttribute("data-preselect-event");
+        syncHolidayFields();
+      });
+    });
+
+    syncHolidayFields();
+    syncSides();
+
     // Mark fields as touched on blur so the CSS :invalid[data-touched] rule
     // only lights up after a real interaction, not on first render.
     requiredFields.forEach(function (f) {
@@ -219,7 +260,9 @@
       if (Object.keys(errors).length > 0) {
         showErrors(errors);
         showStatus("Please fix the highlighted fields before sending.", "error");
-        var firstErrorField = document.getElementById(Object.keys(errors)[0]);
+        var firstKey = Object.keys(errors)[0];
+        var firstErrorField =
+          document.getElementById(firstKey) || form.querySelector('input[name="' + firstKey + '"]');
         if (firstErrorField) firstErrorField.focus();
         return;
       }
@@ -271,6 +314,12 @@
         errors.qGuests = "Guest count should be a positive number.";
       }
 
+      if (isHolidayOrder()) {
+        if (!checkedValue("holidaySize")) errors.holidaySize = "Please choose a package size.";
+        if (!checkedValue("holidayMeat")) errors.holidayMeat = "Please choose turkey or ham.";
+        if (checkedValues("holidaySides").length !== 3) errors.holidaySides = "Please choose three sides.";
+      }
+
       return errors;
     }
 
@@ -300,12 +349,20 @@
       statusEl.className = "form-status";
     }
 
-    function buildMailto() {
-      var serviceTypes = Array.prototype.slice
-        .call(form.querySelectorAll('input[name="serviceType"]:checked'))
+    function checkedValues(name) {
+      return Array.prototype.slice
+        .call(form.querySelectorAll('input[name="' + name + '"]:checked'))
         .map(function (el) {
           return el.value;
         });
+    }
+
+    function checkedValue(name) {
+      return checkedValues(name)[0] || "";
+    }
+
+    function buildMailto() {
+      var serviceTypes = checkedValues("serviceType");
 
       var lines = [
         "New catering quote request from the website:",
@@ -324,6 +381,16 @@
         "Dietary Restrictions / Allergies: " + (fieldValue("qDietary") || "Not specified"),
         "Special Requests: " + (fieldValue("qNotes") || "Not specified")
       ];
+
+      if (isHolidayOrder()) {
+        lines.push(
+          "",
+          "Holiday Feast Package:",
+          "Package Size: " + checkedValue("holidaySize"),
+          "Main Course: " + checkedValue("holidayMeat"),
+          "Sides: " + checkedValues("holidaySides").join(", ")
+        );
+      }
 
       var subject = "Catering Quote Request — " + fieldValue("qName") + " — " + fieldValue("qEventType");
       var body = lines.join("\n");

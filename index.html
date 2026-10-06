@@ -140,6 +140,111 @@
     </div>
   </section>
 
+  <!-- Holiday Feast Package -->
+  <section id="holiday-feast" class="holiday-feast" aria-labelledby="holidayFeastTitle">
+    <div class="container">
+      <div class="section-head centered">
+        <span class="eyebrow">Seasonal Special</span>
+        <h2 id="holidayFeastTitle">Holiday Feast Package</h2>
+        <p>Let Tony's handle the cooking so you can enjoy more time with the people who matter. A warm, traditional holiday dinner for your table — your choice of oven-roasted turkey breast or spiral glazed ham, three homemade sides, fresh dinner rolls, and a classic pumpkin pie.</p>
+      </div>
+
+      <div class="holiday-layout">
+        <figure class="holiday-graphic">
+          <a href="images/holiday-feast-package.jpg" target="_blank" rel="noopener">
+            <img src="images/holiday-feast-package.jpg" width="1145" height="1374" loading="lazy" alt="Tony's On the Go Holiday Feast Package flyer showing the Family Feast and Grand Holiday Feast, turkey or ham, six side choices, dinner rolls, and pumpkin pie. The full menu is listed as text on this page.">
+          </a>
+          <figcaption><a href="images/holiday-feast-package.jpg" target="_blank" rel="noopener">View full-size graphic</a> <span aria-hidden="true">↗</span></figcaption>
+        </figure>
+
+        <div class="holiday-details">
+          <div class="holiday-packages">
+            <article class="holiday-package">
+              <header>
+                <h3>Family Feast</h3>
+                <span class="holiday-serves">Serves up to 4</span>
+              </header>
+              <ul>
+                <li>2.5 lb Oven-Roasted Turkey Breast <em>or</em> 2.5 lb Spiral Glazed Ham</li>
+                <li>Choose three sides (1-quart each)</li>
+                <li>6 freshly baked dinner rolls with whipped butter</li>
+                <li>1 whole traditional pumpkin pie (9-inch)</li>
+              </ul>
+            </article>
+
+            <article class="holiday-package">
+              <header>
+                <h3>Grand Holiday Feast</h3>
+                <span class="holiday-serves">Serves up to 8</span>
+              </header>
+              <ul>
+                <li>5 lb Oven-Roasted Turkey Breast <em>or</em> 5 lb Spiral Glazed Ham</li>
+                <li>Choose three sides (2-quarts each)</li>
+                <li>12 freshly baked dinner rolls with whipped butter</li>
+                <li>1 whole traditional pumpkin pie (9-inch)</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="holiday-mains">
+            <h3>The main course</h3>
+            <dl>
+              <dt>Oven-Roasted Turkey Breast</dt>
+              <dd>Tender, juicy white meat turkey slow-roasted to a perfect golden brown and enhanced with a delicate blend of sage, thyme and rosemary.</dd>
+              <dt>Spiral Glazed Ham</dt>
+              <dd>Thick, sweet and smoky spiral-cut ham baked to perfection and finished with a caramelized brown sugar and honey glaze that locks in rich, festive flavors.</dd>
+            </dl>
+          </div>
+
+          <div class="holiday-sides">
+            <h3>Choose three sides</h3>
+            <dl>
+              <div>
+                <dt>Mashed Potatoes with Turkey Gravy</dt>
+                <dd>Creamy, whipped russet potatoes folded with real butter and cream, served alongside a rich, savory homemade turkey gravy.</dd>
+              </div>
+              <div>
+                <dt>Classic Green Bean Casserole</dt>
+                <dd>Tender green beans tossed in a rich, creamy mushroom sauce, baked until bubbling and topped with a mountain of crispy, golden fried onions.</dd>
+              </div>
+              <div>
+                <dt>Southern-Style Green Beans</dt>
+                <dd>Crisp-tender green beans gently simmered with savory bacon lardons and onions for a deeply comforting, smoky flavor.</dd>
+              </div>
+              <div>
+                <dt>Candied Yams</dt>
+                <dd>Sweet, tender yams baked in a warm brown sugar and cinnamon glaze, topped with a perfectly toasted, gooey marshmallow crust.</dd>
+              </div>
+              <div>
+                <dt>Buttery Sweet Corn</dt>
+                <dd>Crisp, sweet golden corn kernels tossed in rich melted butter and a light touch of cracked black pepper.</dd>
+              </div>
+              <div>
+                <dt>Slow-Baked Beans</dt>
+                <dd>A hearty, smoky favorite slow-cooked in a rich brown sugar and molasses sauce, infused with thick-cut bacon and sweet onions.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="holiday-included">
+            <h3>Included with every feast</h3>
+            <dl>
+              <dt>Freshly Baked Dinner Rolls</dt>
+              <dd>Soft, pillowy yeast rolls served warm with a side of whipped butter.</dd>
+              <dt>Traditional Pumpkin Pie</dt>
+              <dd>A classic holiday finale featuring a smooth, spiced pumpkin custard nestled inside a flaky, golden pastry crust, served with a dollop of whipped cream.</dd>
+            </dl>
+          </div>
+
+          <div class="holiday-cta">
+            <a class="btn btn-primary btn-lg" href="#quote" data-preselect-event="Holiday Feast Package">Inquire About Holiday Packages</a>
+            <p>Dawn will follow up personally to confirm pricing, availability, and pickup or delivery details for your order.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Service options -->
   <section id="services">
     <div class="container">
@@ -716,6 +821,7 @@
                 <option>Sports / Team Event</option>
                 <option>Family Reunion</option>
                 <option>Holiday Party</option>
+                <option>Holiday Feast Package</option>
                 <option>Funeral or Memorial</option>
                 <option>Community Event</option>
                 <option>Other</option>
@@ -728,6 +834,40 @@
               <input type="number" id="qGuests" name="guestCount" min="1" step="1" inputmode="numeric">
               <p class="field-error" id="err-qGuests"></p>
             </div>
+
+            <fieldset class="form-field full holiday-fields" id="holidayFields" hidden>
+              <legend>Holiday Feast Package</legend>
+
+              <div class="holiday-field-group" role="radiogroup" aria-labelledby="hfSizeLabel">
+                <span class="holiday-field-label" id="hfSizeLabel">Package Size</span>
+                <label class="checkbox-option"><input type="radio" name="holidaySize" value="Family Feast (serves up to 4)"> Family Feast — serves up to 4</label>
+                <label class="checkbox-option"><input type="radio" name="holidaySize" value="Grand Holiday Feast (serves up to 8)"> Grand Holiday Feast — serves up to 8</label>
+                <p class="field-error" id="err-holidaySize"></p>
+              </div>
+
+              <div class="holiday-field-group" role="radiogroup" aria-labelledby="hfMeatLabel">
+                <span class="holiday-field-label" id="hfMeatLabel">Main Course</span>
+                <label class="checkbox-option"><input type="radio" name="holidayMeat" value="Oven-Roasted Turkey Breast"> Oven-Roasted Turkey Breast</label>
+                <label class="checkbox-option"><input type="radio" name="holidayMeat" value="Spiral Glazed Ham"> Spiral Glazed Ham</label>
+                <p class="field-error" id="err-holidayMeat"></p>
+              </div>
+
+              <div class="holiday-field-group" role="group" aria-labelledby="hfSidesLabel" aria-describedby="hfSidesHint">
+                <span class="holiday-field-label" id="hfSidesLabel">Sides</span>
+                <span class="optional" id="hfSidesHint">Choose exactly three — <span id="hfSidesCount">0 of 3 selected</span></span>
+                <div class="checkbox-group">
+                  <label class="checkbox-option"><input type="checkbox" name="holidaySides" value="Mashed Potatoes with Turkey Gravy"> Mashed Potatoes with Turkey Gravy</label>
+                  <label class="checkbox-option"><input type="checkbox" name="holidaySides" value="Classic Green Bean Casserole"> Classic Green Bean Casserole</label>
+                  <label class="checkbox-option"><input type="checkbox" name="holidaySides" value="Southern-Style Green Beans"> Southern-Style Green Beans</label>
+                  <label class="checkbox-option"><input type="checkbox" name="holidaySides" value="Candied Yams"> Candied Yams</label>
+                  <label class="checkbox-option"><input type="checkbox" name="holidaySides" value="Buttery Sweet Corn"> Buttery Sweet Corn</label>
+                  <label class="checkbox-option"><input type="checkbox" name="holidaySides" value="Slow-Baked Beans"> Slow-Baked Beans</label>
+                </div>
+                <p class="field-error" id="err-holidaySides"></p>
+              </div>
+
+              <p class="holiday-field-note">Dinner rolls and a 9-inch pumpkin pie are included with every feast.</p>
+            </fieldset>
 
             <div class="form-field full">
               <label for="qMenu"><span class="optional">Menu / Items of Interest (optional)</span></label>

@@ -24,8 +24,9 @@ images/       Catering photos (hero, about, gallery) plus the official
 ## Menu structure
 
 - **Menu** (`#menu`) — Tony's On the Go catering choices from Dawn: Featured
-  Italian Dishes, Plated Options, Buffet-Style Options. No prices have been
-  confirmed for these, so each shows "Contact us for pricing".
+  Italian Dishes, Plated Options, Buffet-Style Options. Prices are Dawn's
+  confirmed catering prices (October 2026). The buffet prices also match the
+  event-room Buffet Packages below, so change both together.
 - **Event Room** (`#event-room`) — Tony's Mountain Pizza's separate, priced
   event-room menu: Buffet Packages, Pasta Options & Upgrades, Desserts, Event
   Inclusions, Event Policies & Booking (accordions: custom events, guest count

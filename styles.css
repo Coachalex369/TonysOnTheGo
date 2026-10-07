@@ -969,6 +969,23 @@ section.tinted {
   color: var(--red);
 }
 
+.dish-card .dish-price strong {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-right: 2px;
+}
+
+.dish-card .dish-addon {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.dish-card .dish-addon strong {
+  color: var(--ink);
+}
+
 .dish-card .dish-note {
   margin: 12px 0 0;
   padding-top: 12px;

@@ -986,6 +986,32 @@ section.tinted {
   color: var(--ink);
 }
 
+.menu-callout {
+  margin: 20px 0 0;
+  padding: 16px 20px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  border-radius: var(--radius);
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+}
+
+.menu-callout strong {
+  color: var(--ink);
+}
+
+.section-head .catering-minimum {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--red);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--red);
+}
+
 .dish-card .dish-note {
   margin: 12px 0 0;
   padding-top: 12px;
@@ -1143,6 +1169,16 @@ section.tinted {
   color: var(--gold-soft);
   margin: auto 0 0;
   line-height: 1.1;
+}
+
+.package-addon {
+  margin: 8px 0 0;
+  font-size: 0.88rem;
+  color: var(--cream-soft);
+}
+
+.package-addon strong {
+  color: var(--gold-soft);
 }
 
 .package-price span {

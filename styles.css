@@ -418,7 +418,7 @@ section.tinted {
   display: block;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1180px) {
   .nav-links {
     position: fixed;
     inset: var(--nav-height) 0 0 0;

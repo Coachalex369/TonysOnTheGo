@@ -69,7 +69,7 @@
 
     // Close if resized back to desktop layout with menu open.
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 880) {
+      if (window.innerWidth > 1180) {
         closeMenu();
       }
     });
